@@ -1,0 +1,90 @@
+---
+title: Security Best Practices
+description: 'HIPAA security configuration best practices'
+---
+
+## Overview
+
+This guide covers security best practices for configuring ScaleHouse Systems in a HIPAA-compliant manner.
+
+## Access Control
+
+<CardGroup cols={2}>
+  <Card title="Strong Passwords" icon="lock">
+    Use strong, unique passwords for all accounts
+  </Card>
+  <Card title="Multi-Factor Authentication" icon="shield">
+    Enable MFA for all user accounts
+  </Card>
+  <Card title="Role-Based Access" icon="user-check">
+    Assign appropriate roles to team members
+  </Card>
+  <Card title="Regular Reviews" icon="calendar">
+    Review access permissions regularly
+  </Card>
+</CardGroup>
+
+## Data Protection
+
+<AccordionGroup>
+  <Accordion title="Encryption">
+    - All data encrypted in transit (TLS)
+    - All data encrypted at rest
+    - Database credentials encrypted with Windows DPAPI
+  </Accordion>
+
+  <Accordion title="Audit Logging">
+    - Enable audit logging in your PMS
+    - Monitor audit logs regularly
+    - Review failed login attempts
+  </Accordion>
+
+  <Accordion title="Backup">
+    - Regular backups of compliance data
+    - Test backup restoration procedures
+    - Store backups securely
+  </Accordion>
+</AccordionGroup>
+
+## Connector Security
+
+<Steps>
+  <Step title="Secure Installation">
+    Install connector on a secure, dedicated computer.
+  </Step>
+  <Step title="Limit Access">
+    Restrict physical and network access to connector computer.
+  </Step>
+  <Step title="Monitor">
+    Monitor connector status and logs regularly.
+  </Step>
+  <Step title="Update">
+    Keep connector software up to date.
+  </Step>
+</Steps>
+
+## Compliance
+
+<Info>
+ScaleHouse Systems is designed to help you maintain HIPAA compliance, but you are responsible for ensuring your overall compliance program meets all requirements.
+</Info>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Frameworks"
+    icon="layers"
+    href="/docs/features/frameworks"
+  >
+    Track HIPAA requirements
+  </Card>
+  <Card
+    title="Training"
+    icon="graduation-cap"
+    href="/docs/features/training"
+  >
+    Security training modules
+  </Card>
+</CardGroup>
+

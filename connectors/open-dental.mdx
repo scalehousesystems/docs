@@ -1,0 +1,212 @@
+---
+title: 'Open Dental Connector'
+description: 'Connect ScaleHouse to Open Dental for real-time audit intelligence'
+---
+
+## Overview
+
+The Open Dental connector polls your Open Dental MySQL database every 2 minutes and sends audit trail events to ScaleHouse for compliance monitoring.
+
+<Info>
+**Prerequisites:** Open Dental must be installed and running on a Windows computer with MySQL database access.
+</Info>
+
+## What Data is Collected
+
+The connector queries the following Open Dental tables:
+
+| Table | Purpose | Frequency |
+|-------|---------|-----------|
+| `auditlog` | Audit trail events | Every 2 minutes |
+| `userod` | User information | Every 2 minutes |
+| `provider` | Provider names | Every 2 minutes |
+| `usergroupattaches` | Permission groups | Every 2 minutes |
+
+### Audit Events Tracked
+
+<AccordionGroup>
+  <Accordion title="Authentication Events">
+    - User logins (`UserLogOnOff`)
+    - Failed login attempts
+    - Session timeouts
+  </Accordion>
+
+  <Accordion title="Patient Access">
+    - Chart views (`ChartModuleViewed`)
+    - Family module access (`FamilyModuleViewed`)
+    - Medical info views (`MedicalInfoViewed`)
+    - Patient edits (`PatientEdit`)
+    - Patient creation (`PatientCreate`)
+  </Accordion>
+
+  <Accordion title="Security Events">
+    - Permission changes (`SecurityAdmin`)
+    - New user creation (`AddNewUser`)
+    - SQL command execution (`CommandQuery`) - **Critical alert**
+  </Accordion>
+
+  <Accordion title="Image Operations">
+    - Image creation (`ImageCreate`)
+    - Image edits (`ImageEdit`)
+    - Image deletion (`ImageDelete`)
+  </Accordion>
+</AccordionGroup>
+
+## Installation
+
+<Steps>
+  <Step title="Download Connector">
+    Go to **Audit Intelligence → Connectors** in your ScaleHouse dashboard and click **"Download Connector"**.
+  </Step>
+
+  <Step title="Run Installer">
+    Double-click `ScaleHouseConnector.msi` and follow the installation wizard. Requires admin rights.
+  </Step>
+
+  <Step title="Generate Activation Token">
+    In the dashboard, click **"Activate Connector"** and copy the activation token (valid for 15 minutes).
+  </Step>
+
+  <Step title="Configure Connector">
+    Right-click the connector icon in your system tray, click **"Configure"**, and paste the activation token.
+  </Step>
+
+  <Step title="Enter Database Credentials">
+    Provide your Open Dental MySQL connection details:
+    - **Host:** `localhost` (or IP address)
+    - **Database:** `opendental` (default name)
+    - **Username:** MySQL username
+    - **Password:** MySQL password
+  </Step>
+
+  <Step title="Activate">
+    Click **"Test Connection"** to verify, then click **"Activate"**. The connector will start syncing immediately.
+  </Step>
+</Steps>
+
+## Database Query
+
+The connector runs this SQL query every 2 minutes:
+
+```sql
+SELECT
+  al.AuditLogNum,
+  al.DateTStamp,
+  al.PatNum,
+  al.UserNum,
+  u.UserName,
+  u.ProvNum,
+  al.Permission,
+  al.Computer,
+  al.LogText,
+  al.LogSource,
+  al.LastEdit,
+  p.FirstName,
+  p.LastName
+FROM auditlog al
+LEFT JOIN userod u ON al.UserNum = u.UserNum
+LEFT JOIN provider p ON u.ProvNum = p.ProvNum
+WHERE al.DateTStamp > :lastPolledAt
+ORDER BY al.DateTStamp ASC;
+```
+
+<Note>
+The connector uses **cursor-based polling** with a 2-minute overlap window to ensure no events are lost during crashes or network issues.
+</Note>
+
+## Compliance Mapping
+
+Open Dental events are automatically mapped to HIPAA requirements:
+
+| Open Dental Permission | HIPAA Citation | Requirement |
+|------------------------|----------------|-------------|
+| `UserLogOnOff` | §164.312(a)(2)(i) | Unique User Identification |
+| `PatientEdit` | §164.312(a)(1) | Access Control |
+| `SecurityAdmin` | §164.308(a)(4) | Information Access Management |
+| `CommandQuery` | §164.312(b) | Audit Controls (RED FLAG) |
+| `ImageDelete` | §164.312(c) | Integrity |
+| `EmailSend` | §164.312(e) | Transmission Security |
+
+<Warning>
+**CommandQuery events** (raw SQL execution) trigger **CRITICAL severity alerts** and should be investigated immediately.
+</Warning>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Connector shows 'Offline' status">
+    **Possible causes:**
+    - Connector service stopped
+    - Network connection lost
+    - Database credentials changed
+    
+    **Solution:**
+    1. Check if connector is running (system tray icon)
+    2. Right-click → "Reconfigure" to update credentials
+    3. Check Windows Event Log for errors
+  </Accordion>
+
+  <Accordion title="No events appearing in dashboard">
+    **Possible causes:**
+    - Connector not activated
+    - Database credentials incorrect
+    - Open Dental audit trail disabled
+    
+    **Solution:**
+    1. Verify connector status is "Active" in dashboard
+    2. Check connector logs: `C:\ProgramData\ScaleHouse\logs\`
+    3. Verify Open Dental audit trail is enabled
+  </Accordion>
+
+  <Accordion title="'Connection refused' error">
+    **Possible causes:**
+    - MySQL not running
+    - Firewall blocking connection
+    - Incorrect host/port
+    
+    **Solution:**
+    1. Verify MySQL is running: `services.msc` → MySQL service
+    2. Check firewall allows localhost connections
+    3. Verify host is `localhost` or correct IP
+  </Accordion>
+</AccordionGroup>
+
+## Security
+
+<Card title="How Credentials are Stored" icon="lock">
+  Open Dental database credentials are encrypted using **Windows DPAPI** (Data Protection API) and stored locally on the office computer. They are **never sent to the cloud**.
+</Card>
+
+**Authentication Flow:**
+1. Connector authenticates to ScaleHouse using per-connector API key
+2. Connector authenticates to Open Dental using local encrypted credentials
+3. Audit events are signed with HMAC-SHA256 before transmission
+4. ScaleHouse validates signature and stores events
+
+## Performance
+
+- **Polling Frequency:** Every 2 minutes (configurable)
+- **Batch Size:** Up to 100 events per request
+- **Network Usage:** ~10-50 KB per sync (minimal)
+- **CPU Usage:** <1% (runs in background)
+- **Memory Usage:** ~50-100 MB
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Gap Detection"
+    icon="shield"
+    href="/docs/audit-intelligence/gap-detection"
+  >
+    Learn how gap detection works
+  </Card>
+  <Card
+    title="Compliance Scoring"
+    icon="chart-line"
+    href="/docs/audit-intelligence/compliance-scoring"
+  >
+    Understand compliance scores
+  </Card>
+</CardGroup>
+

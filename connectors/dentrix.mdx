@@ -1,0 +1,61 @@
+---
+title: Dentrix Connector
+description: 'Connect ScaleHouse to Dentrix for real-time audit intelligence'
+---
+
+## Overview
+
+The Dentrix connector polls your Dentrix SQL Server database every 2 minutes and sends security log events to ScaleHouse for compliance monitoring.
+
+<Info>
+**Prerequisites:** Dentrix must be installed and running on a Windows computer with SQL Server database access.
+</Info>
+
+## Installation
+
+<Steps>
+  <Step title="Download Connector">
+    Go to **Audit Intelligence → Connectors** in your ScaleHouse dashboard and click **"Download Connector"**.
+  </Step>
+  <Step title="Run Installer">
+    Double-click `ScaleHouseConnector.msi` and follow the installation wizard.
+  </Step>
+  <Step title="Activate">
+    Generate an activation token in the dashboard and paste it into the connector.
+  </Step>
+  <Step title="Configure">
+    Enter your Dentrix SQL Server connection details.
+  </Step>
+</Steps>
+
+## Database Configuration
+
+Provide your SQL Server connection details:
+- **Host:** SQL Server instance name or IP
+- **Database:** Dentrix database name
+- **Username:** SQL Server username
+- **Password:** SQL Server password
+
+<Note>
+Dentrix uses SQL Server, so ensure you have the correct SQL Server connection string format.
+</Note>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Activation Guide"
+    icon="key"
+    href="/docs/connectors/activation"
+  >
+    Learn how to activate your connector
+  </Card>
+  <Card
+    title="Troubleshooting"
+    icon="wrench"
+    href="/docs/connectors/troubleshooting"
+  >
+    Common issues and solutions
+  </Card>
+</CardGroup>
+

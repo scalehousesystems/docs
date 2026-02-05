@@ -1,0 +1,99 @@
+---
+title: Connectors Overview
+description: 'Learn about ScaleHouse connectors and how they work'
+---
+
+## What are Connectors?
+
+Connectors are lightweight Windows applications that run on your office computer and sync audit logs from your practice management system (PMS) to ScaleHouse Systems in real-time.
+
+<Info>
+Connectors run in the background and require minimal system resources. They sync data every 2 minutes automatically.
+</Info>
+
+## How Connectors Work
+
+<Steps>
+  <Step title="Install">
+    Download and install the connector on a Windows computer with access to your PMS database.
+  </Step>
+  <Step title="Activate">
+    Generate an activation token in your dashboard and paste it into the connector.
+  </Step>
+  <Step title="Configure">
+    Enter your PMS database credentials (stored securely using Windows DPAPI).
+  </Step>
+  <Step title="Sync">
+    The connector polls your database every 2 minutes and sends new audit events to the cloud.
+  </Step>
+</Steps>
+
+## Supported Systems
+
+<CardGroup cols={3}>
+  <Card title="Open Dental" icon="tooth" href="/docs/connectors/open-dental">
+    MySQL-based PMS with comprehensive audit trail
+  </Card>
+  <Card title="Dentrix" icon="tooth" href="/docs/connectors/dentrix">
+    SQL Server-based PMS with security logs
+  </Card>
+  <Card title="Gusto" icon="users" href="/docs/connectors/gusto">
+    Payroll system for employee roster tracking
+  </Card>
+</CardGroup>
+
+**Coming Soon:** Eaglesoft, ADP, BambooHR, Paychex
+
+## Security
+
+<Card title="How Credentials are Stored" icon="lock">
+  Database credentials are encrypted using **Windows DPAPI** (Data Protection API) and stored locally on the office computer. They are **never sent to the cloud**.
+</Card>
+
+**Authentication Flow:**
+1. Connector authenticates to ScaleHouse using per-connector API key
+2. Connector authenticates to PMS using local encrypted credentials
+3. Audit events are signed with HMAC-SHA256 before transmission
+4. ScaleHouse validates signature and stores events
+
+## Performance
+
+- **Polling Frequency:** Every 2 minutes (configurable)
+- **Batch Size:** Up to 100 events per request
+- **Network Usage:** ~10-50 KB per sync (minimal)
+- **CPU Usage:** <1% (runs in background)
+- **Memory Usage:** ~50-100 MB
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Installation Guide"
+    icon="download"
+    href="/docs/installation"
+  >
+    Learn how to install the connector
+  </Card>
+  <Card
+    title="Activation Guide"
+    icon="key"
+    href="/docs/connectors/activation"
+  >
+    How to activate your connector
+  </Card>
+  <Card
+    title="Open Dental"
+    icon="tooth"
+    href="/docs/connectors/open-dental"
+  >
+    Open Dental connector guide
+  </Card>
+  <Card
+    title="Troubleshooting"
+    icon="wrench"
+    href="/docs/connectors/troubleshooting"
+  >
+    Common issues and solutions
+  </Card>
+</CardGroup>
+

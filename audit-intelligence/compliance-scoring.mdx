@@ -1,0 +1,88 @@
+---
+title: Compliance Scoring
+description: 'Understand how ScaleHouse calculates compliance scores'
+---
+
+## Overview
+
+Compliance scores provide a quantitative measure of your organization's compliance posture, calculated based on detected gaps and security events.
+
+## Score Calculation
+
+Scores are calculated on a scale of 0-100:
+
+- **90-100:** Excellent compliance posture
+- **75-89:** Good compliance with minor issues
+- **60-74:** Needs improvement
+- **Below 60:** Critical issues requiring immediate attention
+
+## Factors Affecting Score
+
+<AccordionGroup>
+  <Accordion title="Gap Severity">
+    Critical gaps have the largest impact on your score.
+  </Accordion>
+
+  <Accordion title="Gap Count">
+    The number of unresolved gaps affects your score.
+  </Accordion>
+
+  <Accordion title="Time to Remediation">
+    How quickly you resolve gaps impacts your score.
+  </Accordion>
+
+  <Accordion title="Audit Trail Completeness">
+    Missing or incomplete audit logs reduce your score.
+  </Accordion>
+</AccordionGroup>
+
+## Viewing Your Score
+
+<Steps>
+  <Step title="Navigate to Dashboard">
+    Go to your ScaleHouse dashboard.
+  </Step>
+  <Step title="View Score">
+    Your compliance score is displayed at the top of the dashboard.
+  </Step>
+  <Step title="View Details">
+    Click on the score to see detailed breakdown by category.
+  </Step>
+</Steps>
+
+## Improving Your Score
+
+<CardGroup cols={2}>
+  <Card title="Resolve Gaps" icon="check-circle">
+    Address detected gaps promptly
+  </Card>
+  <Card title="Enable Audit Trail" icon="shield">
+    Ensure audit logging is enabled
+  </Card>
+  <Card title="Review Alerts" icon="bell">
+    Respond to critical alerts immediately
+  </Card>
+  <Card title="Regular Reviews" icon="calendar">
+    Schedule regular compliance reviews
+  </Card>
+</CardGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Gap Detection"
+    icon="shield"
+    href="/docs/audit-intelligence/gap-detection"
+  >
+    Learn about gap detection
+  </Card>
+  <Card
+    title="Remediation"
+    icon="wrench"
+    href="/docs/features/remediation"
+  >
+    Learn about remediation
+  </Card>
+</CardGroup>
+

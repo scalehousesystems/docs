@@ -1,0 +1,704 @@
+[
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 100,
+    "source_permission_name": "UserLogin",
+    "event_type": "authentication",
+    "resource_type": "security",
+    "action": "authenticate",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(a)(2)(i)",
+        "label": "Unique User Identification",
+        "specification": "required"
+      },
+      {
+        "citation": "§164.312(d)",
+        "label": "Person or Entity Authentication",
+        "specification": "required"
+      }
+    ],
+    "description": "User logged into the system"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 101,
+    "source_permission_name": "UserLogout",
+    "event_type": "authentication",
+    "resource_type": "security",
+    "action": "authenticate",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(d)",
+        "label": "Person or Entity Authentication",
+        "specification": "required"
+      }
+    ],
+    "description": "User logged out of the system"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 102,
+    "source_permission_name": "LoginFailed",
+    "event_type": "authentication",
+    "resource_type": "security",
+    "action": "authenticate",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(d)",
+        "label": "Person or Entity Authentication",
+        "specification": "required"
+      }
+    ],
+    "description": "Failed login attempt"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 103,
+    "source_permission_name": "PasswordChanged",
+    "event_type": "config_change",
+    "resource_type": "security",
+    "action": "update",
+    "cfr_citations": [
+      {
+        "citation": "§164.308(a)(5)(ii)(D)",
+        "label": "Password Management",
+        "specification": "addressable"
+      }
+    ],
+    "description": "User password was changed"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 104,
+    "source_permission_name": "SessionTimeout",
+    "event_type": "authentication",
+    "resource_type": "security",
+    "action": "authenticate",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(a)(2)(iii)",
+        "label": "Automatic Logoff",
+        "specification": "addressable"
+      }
+    ],
+    "description": "User session timed out"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 105,
+    "source_permission_name": "ForceLogout",
+    "event_type": "authentication",
+    "resource_type": "security",
+    "action": "authenticate",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(d)",
+        "label": "Person or Entity Authentication",
+        "specification": "required"
+      }
+    ],
+    "description": "User forcibly logged out by admin"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 200,
+    "source_permission_name": "PatientViewed",
+    "event_type": "record_access",
+    "resource_type": "patient",
+    "action": "read",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(a)(1)",
+        "label": "Access Control",
+        "specification": "required"
+      }
+    ],
+    "description": "Patient record was viewed"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 201,
+    "source_permission_name": "PatientCreated",
+    "event_type": "record_modify",
+    "resource_type": "patient",
+    "action": "create",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(a)(1)",
+        "label": "Access Control",
+        "specification": "required"
+      },
+      {
+        "citation": "§164.312(b)",
+        "label": "Audit Controls",
+        "specification": "required"
+      }
+    ],
+    "description": "New patient record created"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 202,
+    "source_permission_name": "PatientModified",
+    "event_type": "record_modify",
+    "resource_type": "patient",
+    "action": "update",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(a)(1)",
+        "label": "Access Control",
+        "specification": "required"
+      },
+      {
+        "citation": "§164.312(b)",
+        "label": "Audit Controls",
+        "specification": "required"
+      }
+    ],
+    "description": "Patient record was modified"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 203,
+    "source_permission_name": "PatientMerged",
+    "event_type": "record_modify",
+    "resource_type": "patient",
+    "action": "update",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(a)(1)",
+        "label": "Access Control",
+        "specification": "required"
+      },
+      {
+        "citation": "§164.312(b)",
+        "label": "Audit Controls",
+        "specification": "required"
+      }
+    ],
+    "description": "Patient records were merged"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 204,
+    "source_permission_name": "PatientDeleted",
+    "event_type": "record_modify",
+    "resource_type": "patient",
+    "action": "delete",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(a)(1)",
+        "label": "Access Control",
+        "specification": "required"
+      },
+      {
+        "citation": "§164.312(b)",
+        "label": "Audit Controls",
+        "specification": "required"
+      },
+      {
+        "citation": "§164.312(c)",
+        "label": "Integrity",
+        "specification": "required"
+      }
+    ],
+    "description": "Patient record was deleted"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 210,
+    "source_permission_name": "ChartViewed",
+    "event_type": "record_access",
+    "resource_type": "patient",
+    "action": "read",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(a)(1)",
+        "label": "Access Control",
+        "specification": "required"
+      }
+    ],
+    "description": "Patient chart was viewed"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 211,
+    "source_permission_name": "MedicalHistoryViewed",
+    "event_type": "record_access",
+    "resource_type": "patient",
+    "action": "read",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(a)(1)",
+        "label": "Access Control",
+        "specification": "required"
+      }
+    ],
+    "description": "Patient medical history was viewed"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 212,
+    "source_permission_name": "MedicalHistoryModified",
+    "event_type": "record_modify",
+    "resource_type": "patient",
+    "action": "update",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(a)(1)",
+        "label": "Access Control",
+        "specification": "required"
+      },
+      {
+        "citation": "§164.312(b)",
+        "label": "Audit Controls",
+        "specification": "required"
+      }
+    ],
+    "description": "Patient medical history was modified"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 220,
+    "source_permission_name": "FamilyFileViewed",
+    "event_type": "record_access",
+    "resource_type": "patient",
+    "action": "read",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(a)(1)",
+        "label": "Access Control",
+        "specification": "required"
+      }
+    ],
+    "description": "Family file was viewed"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 221,
+    "source_permission_name": "SSNViewed",
+    "event_type": "record_access",
+    "resource_type": "patient",
+    "action": "read",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(a)(1)",
+        "label": "Access Control",
+        "specification": "required"
+      }
+    ],
+    "description": "Patient SSN was viewed (sensitive field)"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 222,
+    "source_permission_name": "DOBViewed",
+    "event_type": "record_access",
+    "resource_type": "patient",
+    "action": "read",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(a)(1)",
+        "label": "Access Control",
+        "specification": "required"
+      }
+    ],
+    "description": "Patient DOB was viewed (sensitive field)"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 300,
+    "source_permission_name": "ImageViewed",
+    "event_type": "image_operation",
+    "resource_type": "image",
+    "action": "read",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(a)(1)",
+        "label": "Access Control",
+        "specification": "required"
+      }
+    ],
+    "description": "Patient image was viewed"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 301,
+    "source_permission_name": "ImageCreated",
+    "event_type": "image_operation",
+    "resource_type": "image",
+    "action": "create",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(c)",
+        "label": "Integrity",
+        "specification": "required"
+      }
+    ],
+    "description": "Patient image was created/uploaded"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 302,
+    "source_permission_name": "ImageModified",
+    "event_type": "image_operation",
+    "resource_type": "image",
+    "action": "update",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(c)",
+        "label": "Integrity",
+        "specification": "required"
+      }
+    ],
+    "description": "Patient image was modified"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 303,
+    "source_permission_name": "ImageDeleted",
+    "event_type": "image_operation",
+    "resource_type": "image",
+    "action": "delete",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(c)",
+        "label": "Integrity",
+        "specification": "required"
+      }
+    ],
+    "description": "Patient image was deleted"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 304,
+    "source_permission_name": "ImageExported",
+    "event_type": "data_export",
+    "resource_type": "image",
+    "action": "export",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(e)",
+        "label": "Transmission Security",
+        "specification": "required"
+      }
+    ],
+    "description": "Patient image was exported"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 310,
+    "source_permission_name": "DocumentViewed",
+    "event_type": "record_access",
+    "resource_type": "document",
+    "action": "read",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(a)(1)",
+        "label": "Access Control",
+        "specification": "required"
+      }
+    ],
+    "description": "Patient document was viewed"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 311,
+    "source_permission_name": "DocumentScanned",
+    "event_type": "image_operation",
+    "resource_type": "document",
+    "action": "create",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(c)",
+        "label": "Integrity",
+        "specification": "required"
+      }
+    ],
+    "description": "Document was scanned into patient record"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 400,
+    "source_permission_name": "UserCreated",
+    "event_type": "config_change",
+    "resource_type": "security",
+    "action": "create",
+    "cfr_citations": [
+      {
+        "citation": "§164.308(a)(3)",
+        "label": "Workforce Security",
+        "specification": "required"
+      },
+      {
+        "citation": "§164.308(a)(4)",
+        "label": "Information Access Management",
+        "specification": "required"
+      }
+    ],
+    "description": "New user account created"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 401,
+    "source_permission_name": "UserModified",
+    "event_type": "config_change",
+    "resource_type": "security",
+    "action": "update",
+    "cfr_citations": [
+      {
+        "citation": "§164.308(a)(4)",
+        "label": "Information Access Management",
+        "specification": "required"
+      }
+    ],
+    "description": "User account was modified"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 402,
+    "source_permission_name": "UserDeleted",
+    "event_type": "config_change",
+    "resource_type": "security",
+    "action": "delete",
+    "cfr_citations": [
+      {
+        "citation": "§164.308(a)(3)",
+        "label": "Workforce Security",
+        "specification": "required"
+      },
+      {
+        "citation": "§164.308(a)(4)",
+        "label": "Information Access Management",
+        "specification": "required"
+      }
+    ],
+    "description": "User account was deleted"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 403,
+    "source_permission_name": "RoleAssigned",
+    "event_type": "config_change",
+    "resource_type": "security",
+    "action": "update",
+    "cfr_citations": [
+      {
+        "citation": "§164.308(a)(4)",
+        "label": "Information Access Management",
+        "specification": "required"
+      }
+    ],
+    "description": "Role was assigned to user"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 404,
+    "source_permission_name": "RoleRevoked",
+    "event_type": "config_change",
+    "resource_type": "security",
+    "action": "update",
+    "cfr_citations": [
+      {
+        "citation": "§164.308(a)(4)",
+        "label": "Information Access Management",
+        "specification": "required"
+      }
+    ],
+    "description": "Role was revoked from user"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 405,
+    "source_permission_name": "PermissionGranted",
+    "event_type": "config_change",
+    "resource_type": "security",
+    "action": "update",
+    "cfr_citations": [
+      {
+        "citation": "§164.308(a)(4)",
+        "label": "Information Access Management",
+        "specification": "required"
+      }
+    ],
+    "description": "Permission was granted to user/role"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 406,
+    "source_permission_name": "PermissionRevoked",
+    "event_type": "config_change",
+    "resource_type": "security",
+    "action": "update",
+    "cfr_citations": [
+      {
+        "citation": "§164.308(a)(4)",
+        "label": "Information Access Management",
+        "specification": "required"
+      }
+    ],
+    "description": "Permission was revoked from user/role"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 410,
+    "source_permission_name": "SecuritySettingChanged",
+    "event_type": "config_change",
+    "resource_type": "security",
+    "action": "update",
+    "cfr_citations": [
+      {
+        "citation": "§164.308(a)(1)",
+        "label": "Security Management Process",
+        "specification": "required"
+      }
+    ],
+    "description": "Security setting was changed"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 500,
+    "source_permission_name": "ReportGenerated",
+    "event_type": "data_export",
+    "resource_type": "report",
+    "action": "execute",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(b)",
+        "label": "Audit Controls",
+        "specification": "required"
+      }
+    ],
+    "description": "Report was generated"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 501,
+    "source_permission_name": "ReportExported",
+    "event_type": "data_export",
+    "resource_type": "report",
+    "action": "export",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(e)",
+        "label": "Transmission Security",
+        "specification": "required"
+      }
+    ],
+    "description": "Report was exported"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 502,
+    "source_permission_name": "DataExported",
+    "event_type": "data_export",
+    "resource_type": "patient",
+    "action": "export",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(e)",
+        "label": "Transmission Security",
+        "specification": "required"
+      }
+    ],
+    "description": "Patient data was exported"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 503,
+    "source_permission_name": "EmailSent",
+    "event_type": "data_export",
+    "resource_type": "patient",
+    "action": "export",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(e)",
+        "label": "Transmission Security",
+        "specification": "required"
+      }
+    ],
+    "description": "Email containing patient data was sent"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 510,
+    "source_permission_name": "PatientListExported",
+    "event_type": "data_export",
+    "resource_type": "patient",
+    "action": "export",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(e)",
+        "label": "Transmission Security",
+        "specification": "required"
+      }
+    ],
+    "description": "Patient list was exported"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 600,
+    "source_permission_name": "DatabaseBackup",
+    "event_type": "system_action",
+    "resource_type": "system",
+    "action": "execute",
+    "cfr_citations": [
+      {
+        "citation": "§164.308(a)(7)(ii)(A)",
+        "label": "Data Backup Plan",
+        "specification": "required"
+      }
+    ],
+    "description": "Database backup was performed"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 601,
+    "source_permission_name": "DatabaseRestore",
+    "event_type": "system_action",
+    "resource_type": "system",
+    "action": "execute",
+    "cfr_citations": [
+      {
+        "citation": "§164.308(a)(7)(ii)(B)",
+        "label": "Disaster Recovery Plan",
+        "specification": "required"
+      }
+    ],
+    "description": "Database restore was performed"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 602,
+    "source_permission_name": "SystemSettingChanged",
+    "event_type": "system_action",
+    "resource_type": "system",
+    "action": "update",
+    "cfr_citations": [
+      {
+        "citation": "§164.308(a)(1)",
+        "label": "Security Management Process",
+        "specification": "required"
+      }
+    ],
+    "description": "System setting was changed"
+  },
+  {
+    "source_system": "dentrix",
+    "source_permission_code": 603,
+    "source_permission_name": "SQLQueryExecuted",
+    "event_type": "system_action",
+    "resource_type": "system",
+    "action": "execute",
+    "cfr_citations": [
+      {
+        "citation": "§164.312(b)",
+        "label": "Audit Controls",
+        "specification": "required"
+      }
+    ],
+    "description": "Direct SQL query was executed (RED FLAG)"
+  }
+]
+

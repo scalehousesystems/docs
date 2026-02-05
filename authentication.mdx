@@ -1,0 +1,158 @@
+---
+title: Authentication
+description: 'Learn how authentication works in ScaleHouse Systems'
+---
+
+## Overview
+
+ScaleHouse Systems uses Supabase Auth for secure authentication. This guide covers how authentication works for both users and API access.
+
+## User Authentication
+
+### Sign Up
+
+<Steps>
+  <Step title="Visit Signup Page">
+    Go to [scalehousesystems.com/signup](https://scalehousesystems.com/signup).
+  </Step>
+  <Step title="Enter Email">
+    Provide your email address and create a password.
+  </Step>
+  <Step title="Verify Email">
+    Check your email and click the verification link.
+  </Step>
+  <Step title="Complete Profile">
+    Fill in your name and organization details.
+  </Step>
+</Steps>
+
+### Sign In
+
+<Steps>
+  <Step title="Visit Login Page">
+    Go to [scalehousesystems.com/login](https://scalehousesystems.com/login).
+  </Step>
+  <Step title="Enter Credentials">
+    Enter your email and password.
+  </Step>
+  <Step title="Access Dashboard">
+    You'll be redirected to your dashboard upon successful login.
+  </Step>
+</Steps>
+
+### Password Reset
+
+<Steps>
+  <Step title="Click Forgot Password">
+    On the login page, click **"Forgot Password"**.
+  </Step>
+  <Step title="Enter Email">
+    Provide your email address.
+  </Step>
+  <Step title="Check Email">
+    You'll receive a password reset link.
+  </Step>
+  <Step title="Set New Password">
+    Click the link and enter your new password.
+  </Step>
+</Steps>
+
+## API Authentication
+
+### API Keys
+
+API keys are used for programmatic access to the ScaleHouse API.
+
+<Info>
+API keys are scoped to your organization and can be revoked at any time.
+</Info>
+
+### Generating API Keys
+
+<Steps>
+  <Step title="Navigate to Settings">
+    Go to **Settings → API Keys** in your dashboard.
+  </Step>
+  <Step title="Create Key">
+    Click **"Create API Key"** and give it a name.
+  </Step>
+  <Step title="Copy Key">
+    Copy the API key immediately - it won't be shown again.
+  </Step>
+  <Step title="Store Securely">
+    Store the key in a secure location (password manager, environment variables).
+  </Step>
+</Steps>
+
+### Using API Keys
+
+Include your API key in the `Authorization` header:
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  https://api.scalehousesystems.com/v1/connectors
+```
+
+### Connector Authentication
+
+Connectors use a different authentication flow:
+
+<Steps>
+  <Step title="Generate Activation Token">
+    In the dashboard, go to **Audit Intelligence → Connectors** and click **"Activate Connector"**.
+  </Step>
+  <Step title="Copy Token">
+    Copy the activation token (valid for 15 minutes).
+  </Step>
+  <Step title="Activate in Connector">
+    Paste the token into the connector configuration window.
+  </Step>
+  <Step title="Receive API Key">
+    The connector receives a permanent API key for ongoing authentication.
+  </Step>
+</Steps>
+
+## Security Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Use Strong Passwords" icon="lock">
+    Use a password manager to generate and store strong, unique passwords.
+  </Card>
+  <Card title="Enable MFA" icon="shield">
+    Enable multi-factor authentication for additional security.
+  </Card>
+  <Card title="Rotate API Keys" icon="refresh">
+    Regularly rotate API keys, especially if they may have been compromised.
+  </Card>
+  <Card title="Use Environment Variables" icon="code">
+    Never hardcode API keys in your code. Use environment variables instead.
+  </Card>
+</CardGroup>
+
+## Session Management
+
+Sessions are managed automatically by Supabase Auth. Sessions expire after 7 days of inactivity or can be manually revoked.
+
+<Warning>
+If you suspect your account has been compromised, immediately change your password and revoke all API keys.
+</Warning>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="API Reference"
+    icon="code"
+    href="/docs/api-reference/authentication"
+  >
+    Detailed API authentication documentation
+  </Card>
+  <Card
+    title="Security Guide"
+    icon="shield"
+    href="/docs/guides/security-best-practices"
+  >
+    Security best practices
+  </Card>
+</CardGroup>
+

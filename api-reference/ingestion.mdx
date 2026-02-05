@@ -1,0 +1,70 @@
+---
+title: Ingestion API
+description: 'Ingest audit events from connectors'
+---
+
+## Overview
+
+The Ingestion API allows connectors to send audit events to ScaleHouse. Events must be signed with HMAC-SHA256.
+
+## Endpoint
+
+### Ingest Audit Events
+
+```bash
+POST /api/ingest/audit-events
+```
+
+Send audit events from a connector.
+
+**Headers:**
+```
+Authorization: Bearer CONNECTOR_API_KEY
+X-Signature: HMAC_SHA256_SIGNATURE
+```
+
+**Request:**
+```json
+{
+  "events": [
+    {
+      "timestamp": "2024-01-01T12:00:00Z",
+      "event_type": "UserLogOnOff",
+      "user_id": "user123",
+      "details": {...}
+    }
+  ]
+}
+```
+
+## HMAC Signature
+
+Events must be signed with HMAC-SHA256 using your connector's secret key:
+
+```javascript
+const crypto = require('crypto');
+const signature = crypto
+  .createHmac('sha256', secretKey)
+  .update(JSON.stringify(requestBody))
+  .digest('hex');
+```
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Connectors API"
+    icon="plug"
+    href="/docs/api-reference/connectors"
+  >
+    Manage connectors
+  </Card>
+  <Card
+    title="Webhooks"
+    icon="webhook"
+    href="/docs/api-reference/webhooks"
+  >
+    Set up webhooks
+  </Card>
+</CardGroup>
+

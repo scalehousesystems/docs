@@ -1,0 +1,68 @@
+---
+title: Cross-System Detection
+description: 'Configure cross-system gap detection (PMS + Payroll)'
+---
+
+## Overview
+
+Cross-system detection correlates data across multiple systems (e.g., PMS and payroll) to detect critical compliance gaps.
+
+## Example: Terminated Employee Detection
+
+<Steps>
+  <Step title="Connect PMS">
+    Install and activate connector for your PMS (Open Dental, Dentrix).
+  </Step>
+  <Step title="Connect Payroll">
+    Connect Gusto or other payroll system.
+  </Step>
+  <Step title="Enable Detection">
+    Enable cross-system detection in settings.
+  </Step>
+  <Step title="Monitor">
+    ScaleHouse automatically detects terminated employees with active PMS access.
+  </Step>
+</Steps>
+
+## Supported Correlations
+
+<CardGroup cols={2}>
+  <Card title="Terminated Employees" icon="user-x">
+    Detect terminated employees with active access
+  </Card>
+  <Card title="Access After Hours" icon="clock">
+    Identify unusual access patterns
+  </Card>
+  <Card title="Permission Mismatches" icon="shield">
+    Find permission inconsistencies
+  </Card>
+  <Card title="Data Exports" icon="download">
+    Track bulk data exports
+  </Card>
+</CardGroup>
+
+## Configuration
+
+<Info>
+Cross-system detection requires connectors for both systems to be active and properly configured.
+</Info>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Gap Detection"
+    icon="shield"
+    href="/docs/audit-intelligence/gap-detection"
+  >
+    Learn about gap detection
+  </Card>
+  <Card
+    title="Gusto Connector"
+    icon="users"
+    href="/docs/connectors/gusto"
+  >
+    Set up Gusto connector
+  </Card>
+</CardGroup>
+

@@ -1,0 +1,72 @@
+---
+title: MCP Tools
+description: 'Model Context Protocol tools for AI workflows'
+---
+
+## Overview
+
+MCP (Model Context Protocol) tools allow AI assistants to interact with ScaleHouse data and perform compliance tasks.
+
+## Available Tools
+
+### Get Audit Log Slice
+
+Query audit logs with filters.
+
+**Parameters:**
+- `start_date`: Start date for query
+- `end_date`: End date for query
+- `event_type`: Filter by event type
+- `user_id`: Filter by user
+
+### Summarize Risk
+
+Analyze compliance posture and generate risk summary.
+
+**Parameters:**
+- `timeframe`: Time period to analyze
+- `framework`: HIPAA or OSHA
+
+### Generate Audit Packet
+
+Generate compliance documents automatically.
+
+**Parameters:**
+- `document_type`: Type of document to generate
+- `timeframe`: Time period to include
+
+### Detect Anomalies
+
+Find suspicious patterns in audit logs.
+
+**Parameters:**
+- `timeframe`: Time period to analyze
+- `severity`: Minimum severity level
+
+### Check Compliance Gaps
+
+Identify missing controls and requirements.
+
+**Parameters:**
+- `framework`: HIPAA or OSHA
+- `location_id`: Specific location (optional)
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="AI Workflows"
+    icon="workflow"
+    href="/docs/ai-workflows/overview"
+  >
+    Learn about AI workflows
+  </Card>
+  <Card
+    title="Webhooks"
+    icon="webhook"
+    href="/docs/api-reference/webhooks"
+  >
+    Set up webhooks
+  </Card>
+</CardGroup>
+

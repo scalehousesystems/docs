@@ -1,0 +1,35 @@
+dentrix_table,dentrix_column,dentrix_type,nullable,open_dental_table,open_dental_column,normalized_field,description
+SecurityLog,SecurityLogID,bigint,No,auditlog,AuditLogNum,source_event_id,Primary key / unique event identifier
+SecurityLog,LogDateTime,datetime2,No,auditlog,DateTStamp,event_time,Event timestamp (ISO 8601)
+SecurityLog,PatientID,bigint,Yes,auditlog,PatNum,target_entity_id,Patient ID (null for non-patient events)
+SecurityLog,UserID,bigint,Yes,auditlog,UserNum,actor.id,User who performed the action
+SecurityLog,EventType,int,No,auditlog,Permission,event_type,Event type (see permission-mappings.json)
+SecurityLog,WorkstationID,nvarchar(50),Yes,auditlog,Computer,workstation,Computer/terminal identifier
+SecurityLog,Description,nvarchar(max),Yes,auditlog,LogText,metadata.log_text,Freeform event description
+SecurityLog,SourceModule,nvarchar(50),Yes,auditlog,LogSource,metadata.source_module,Module that generated the event
+SecurityLog,OldValue,nvarchar(max),Yes,auditlog,LogText (parsed),metadata.old_value,Previous value for changes
+SecurityLog,NewValue,nvarchar(max),Yes,auditlog,LogText (parsed),metadata.new_value,New value for changes
+SecurityLog,FieldName,nvarchar(100),Yes,auditlog,LogText (parsed),metadata.field_changed,Name of field that changed
+SecurityLog,IPAddress,nvarchar(45),Yes,N/A,N/A,metadata.ip_address,Client IP address (Dentrix-specific)
+SecurityLog,SessionID,nvarchar(100),Yes,N/A,N/A,metadata.session_id,Session identifier (Dentrix-specific)
+PatientAccessLog,AccessLogID,bigint,No,N/A,N/A,source_event_id,Access log primary key
+PatientAccessLog,PatientID,bigint,No,auditlog,PatNum,target_entity_id,Patient accessed
+PatientAccessLog,UserID,bigint,No,auditlog,UserNum,actor.id,User who accessed
+PatientAccessLog,AccessDateTime,datetime2,No,auditlog,DateTStamp,event_time,Access timestamp
+PatientAccessLog,AccessType,int,No,auditlog,Permission,action,Type of access (view/edit/print/export)
+PatientAccessLog,ModuleAccessed,nvarchar(50),Yes,N/A,N/A,metadata.module_accessed,Module used (Chart/Family/Ledger)
+PatientAccessLog,WorkstationID,nvarchar(50),Yes,auditlog,Computer,workstation,Computer used
+Users,UserID,bigint,No,userod,UserNum,actor.id,User primary key
+Users,UserName,nvarchar(50),No,userod,UserName,actor.name,Login username
+Users,FirstName,nvarchar(50),Yes,provider,FName,metadata.user_first_name,User first name
+Users,LastName,nvarchar(50),Yes,provider,LName,metadata.user_last_name,User last name
+Users,ProviderID,bigint,Yes,userod,ProvNum,metadata.provider_id,Linked provider ID
+Users,IsActive,bit,No,N/A,N/A,metadata.user_active,Whether user is active
+Users,Email,nvarchar(100),Yes,N/A,N/A,metadata.user_email,User email
+Users,LastLoginDateTime,datetime2,Yes,N/A,N/A,metadata.last_login,Last successful login
+Providers,ProviderID,bigint,No,provider,ProvNum,metadata.provider_id,Provider primary key
+Providers,FirstName,nvarchar(50),Yes,provider,FName,metadata.provider_first_name,Provider first name
+Providers,LastName,nvarchar(50),Yes,provider,LName,metadata.provider_last_name,Provider last name
+Providers,Suffix,nvarchar(20),Yes,provider,Suffix,metadata.provider_suffix,Credentials (DMD/DDS)
+Providers,NPINumber,nvarchar(20),Yes,N/A,N/A,metadata.provider_npi,NPI number
+

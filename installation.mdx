@@ -1,0 +1,133 @@
+---
+title: Installation Guide
+description: 'Install and configure the ScaleHouse connector on Windows'
+---
+
+## Overview
+
+The ScaleHouse connector is a Windows application that runs in the background and syncs audit logs from your practice management system to the cloud.
+
+<Info>
+**System Requirements:**
+- Windows 10 or later
+- Administrator rights for installation
+- Network access to your PMS database
+- Internet connection for syncing to cloud
+</Info>
+
+## Download
+
+<Steps>
+  <Step title="Navigate to Dashboard">
+    Log in to your ScaleHouse dashboard at [scalehousesystems.com/dashboard](https://scalehousesystems.com/dashboard).
+  </Step>
+  <Step title="Go to Connectors">
+    Navigate to **Audit Intelligence → Connectors**.
+  </Step>
+  <Step title="Download">
+    Click **"Download Connector"** to download `ScaleHouseConnector.msi`.
+  </Step>
+</Steps>
+
+## Installation
+
+<Steps>
+  <Step title="Run Installer">
+    Double-click `ScaleHouseConnector.msi` to start the installation wizard.
+  </Step>
+  <Step title="Accept License">
+    Read and accept the license agreement.
+  </Step>
+  <Step title="Choose Location">
+    Select the installation directory (default: `C:\Program Files\ScaleHouse`).
+  </Step>
+  <Step title="Install">
+    Click **"Install"** and wait for the installation to complete. You may be prompted for administrator credentials.
+  </Step>
+  <Step title="Complete">
+    Click **"Finish"** to complete the installation. The connector will start automatically.
+  </Step>
+</Steps>
+
+## Initial Configuration
+
+After installation, you'll see the ScaleHouse icon in your system tray.
+
+<Steps>
+  <Step title="Open Configuration">
+    Right-click the system tray icon and select **"Configure"**.
+  </Step>
+  <Step title="Activate">
+    You'll need an activation token from your dashboard. See the [Activation Guide](/docs/connectors/activation) for details.
+  </Step>
+  <Step title="Enter Database Credentials">
+    Provide your PMS database connection details:
+    - **Host:** Database server address
+    - **Port:** Database port (default: 3306 for MySQL, 1433 for SQL Server)
+    - **Database:** Database name
+    - **Username:** Database username
+    - **Password:** Database password
+  </Step>
+  <Step title="Test Connection">
+    Click **"Test Connection"** to verify the credentials.
+  </Step>
+  <Step title="Save">
+    Click **"Save"** to store the configuration. The connector will start syncing.
+  </Step>
+</Steps>
+
+## Verification
+
+<Steps>
+  <Step title="Check System Tray">
+    Verify the connector icon is visible in your system tray.
+  </Step>
+  <Step title="Check Dashboard">
+    In your dashboard, go to **Audit Intelligence → Connectors** and verify status is **"Active"**.
+  </Step>
+  <Step title="View Events">
+    Navigate to **Audit Intelligence → Events** to see audit logs syncing.
+  </Step>
+</Steps>
+
+## Uninstallation
+
+<Steps>
+  <Step title="Stop Connector">
+    Right-click the system tray icon and select **"Exit"**.
+  </Step>
+  <Step title="Uninstall">
+    Go to **Settings → Apps → Apps & features**, find "ScaleHouse Connector", and click **"Uninstall"**.
+  </Step>
+  <Step title="Clean Up (Optional)">
+    To remove all data, delete `C:\ProgramData\ScaleHouse`.
+  </Step>
+</Steps>
+
+<Warning>
+Uninstalling the connector will stop syncing audit logs. Your historical data in the cloud will remain, but new events won't be collected.
+</Warning>
+
+## Troubleshooting
+
+See the [Troubleshooting Guide](/docs/connectors/troubleshooting) for common issues and solutions.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Activation Guide"
+    icon="key"
+    href="/docs/connectors/activation"
+  >
+    Learn how to activate your connector
+  </Card>
+  <Card
+    title="Connector Guides"
+    icon="plug"
+    href="/docs/connectors/overview"
+  >
+    Connector-specific documentation
+  </Card>
+</CardGroup>
+

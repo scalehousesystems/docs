@@ -1,0 +1,154 @@
+---
+title: Quickstart Guide
+description: 'Get started with ScaleHouse Systems in 5 minutes'
+---
+
+## Overview
+
+This guide will help you get ScaleHouse Systems up and running in just 5 minutes. You'll install the connector, activate it, and start monitoring your compliance posture.
+
+<Info>
+**Prerequisites:** You need a ScaleHouse Systems account and a Windows computer with your practice management system installed.
+</Info>
+
+## Step 1: Create Your Account
+
+If you haven't already, sign up at [scalehousesystems.com/signup](https://scalehousesystems.com/signup).
+
+<Steps>
+  <Step title="Sign Up">
+    Go to the signup page and create your account with your email address.
+  </Step>
+  <Step title="Verify Email">
+    Check your email and click the verification link.
+  </Step>
+  <Step title="Complete Onboarding">
+    Follow the onboarding wizard to set up your organization and location.
+  </Step>
+</Steps>
+
+## Step 2: Download the Connector
+
+<Steps>
+  <Step title="Navigate to Connectors">
+    In your dashboard, go to **Audit Intelligence → Connectors**.
+  </Step>
+  <Step title="Download">
+    Click **"Download Connector"** to download the `ScaleHouseConnector.msi` installer.
+  </Step>
+  <Step title="Run Installer">
+    Double-click the installer and follow the installation wizard. You'll need administrator rights.
+  </Step>
+</Steps>
+
+## Step 3: Activate the Connector
+
+<Steps>
+  <Step title="Generate Token">
+    In the dashboard, click **"Activate Connector"** and copy the activation token. This token is valid for 15 minutes.
+  </Step>
+  <Step title="Open Connector">
+    Right-click the ScaleHouse connector icon in your system tray and select **"Configure"**.
+  </Step>
+  <Step title="Paste Token">
+    Paste the activation token into the configuration window and click **"Activate"**.
+  </Step>
+</Steps>
+
+## Step 4: Configure Database Connection
+
+<Steps>
+  <Step title="Enter Credentials">
+    Provide your practice management system database credentials:
+    - **Host:** `localhost` (or your database server IP)
+    - **Database:** Your PMS database name
+    - **Username:** Database username
+    - **Password:** Database password
+  </Step>
+  <Step title="Test Connection">
+    Click **"Test Connection"** to verify the credentials work.
+  </Step>
+  <Step title="Save">
+    Click **"Save"** to store the configuration. The connector will start syncing immediately.
+  </Step>
+</Steps>
+
+<Warning>
+Database credentials are encrypted using Windows DPAPI and stored locally. They are never sent to the cloud.
+</Warning>
+
+## Step 5: Verify Connection
+
+<Steps>
+  <Step title="Check Status">
+    In the dashboard, go to **Audit Intelligence → Connectors** and verify the connector shows as **"Active"**.
+  </Step>
+  <Step title="View Events">
+    Navigate to **Audit Intelligence → Events** to see audit logs appearing in real-time.
+  </Step>
+  <Step title="Wait for Gap Detection">
+    Gap detection runs every 15 minutes. Wait a few minutes, then check **Audit Intelligence → Alerts** for any compliance gaps.
+  </Step>
+</Steps>
+
+## What's Next?
+
+<CardGroup cols={2}>
+  <Card
+    title="Installation Guide"
+    icon="download"
+    href="/docs/installation"
+  >
+    Detailed installation instructions
+  </Card>
+  <Card
+    title="Connector Guides"
+    icon="plug"
+    href="/docs/connectors/overview"
+  >
+    Learn about specific connectors
+  </Card>
+  <Card
+    title="Gap Detection"
+    icon="shield"
+    href="/docs/audit-intelligence/gap-detection"
+  >
+    Understand how gap detection works
+  </Card>
+  <Card
+    title="API Reference"
+    icon="code"
+    href="/docs/api-reference/authentication"
+  >
+    Integrate with our API
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Connector shows 'Offline'">
+    **Possible causes:**
+    - Connector service stopped
+    - Network connection lost
+    - Database credentials changed
+    
+    **Solution:**
+    1. Check if connector is running (system tray icon)
+    2. Right-click → "Reconfigure" to update credentials
+    3. Check Windows Event Log for errors
+  </Accordion>
+
+  <Accordion title="No events appearing">
+    **Possible causes:**
+    - Connector not activated
+    - Database credentials incorrect
+    - Audit trail disabled in PMS
+    
+    **Solution:**
+    1. Verify connector status is "Active" in dashboard
+    2. Check connector logs: `C:\ProgramData\ScaleHouse\logs\`
+    3. Verify audit trail is enabled in your PMS
+  </Accordion>
+</AccordionGroup>
+

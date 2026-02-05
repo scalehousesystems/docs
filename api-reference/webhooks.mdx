@@ -1,0 +1,76 @@
+---
+title: Webhooks
+description: 'Receive real-time notifications via webhooks'
+---
+
+## Overview
+
+Webhooks allow you to receive real-time notifications when events occur in ScaleHouse, such as new gaps detected or connector status changes.
+
+## Setting Up Webhooks
+
+<Steps>
+  <Step title="Navigate to Settings">
+    Go to **Settings → Webhooks** in your dashboard.
+  </Step>
+  <Step title="Create Webhook">
+    Click **"Create Webhook"** and enter your endpoint URL.
+  </Step>
+  <Step title="Select Events">
+    Choose which events to receive notifications for.
+  </Step>
+  <Step title="Save">
+    Click **"Save"** to create the webhook.
+  </Step>
+</Steps>
+
+## Webhook Events
+
+<CardGroup cols={2}>
+  <Card title="Gap Detected" icon="alert-triangle">
+    New compliance gap detected
+  </Card>
+  <Card title="Connector Status" icon="plug">
+    Connector status changed
+  </Card>
+  <Card title="Score Change" icon="chart-line">
+    Compliance score changed significantly
+  </Card>
+  <Card title="Alert Triggered" icon="bell">
+    Alert condition met
+  </Card>
+</CardGroup>
+
+## Webhook Payload
+
+```json
+{
+  "event": "gap.detected",
+  "timestamp": "2024-01-01T12:00:00Z",
+  "data": {
+    "gap_id": "gap_123",
+    "severity": "critical",
+    "description": "..."
+  }
+}
+```
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="API Reference"
+    icon="code"
+    href="/docs/api-reference/authentication"
+  >
+    Full API documentation
+  </Card>
+  <Card
+    title="Alerts"
+    icon="bell"
+    href="/docs/audit-intelligence/alerts"
+  >
+    Configure alerts
+  </Card>
+</CardGroup>
+

@@ -1,0 +1,63 @@
+---
+title: Gusto Connector
+description: 'Connect ScaleHouse to Gusto for employee roster tracking'
+---
+
+## Overview
+
+The Gusto connector syncs employee roster and termination data from Gusto to enable cross-system gap detection (e.g., terminated employees with active PMS access).
+
+<Info>
+**Prerequisites:** You need a Gusto account with API access enabled.
+</Info>
+
+## Setup
+
+<Steps>
+  <Step title="Enable API Access">
+    In your Gusto account, enable API access and generate API credentials.
+  </Step>
+  <Step title="Configure in Dashboard">
+    Go to **Audit Intelligence → Connectors** and click **"Connect Gusto"**.
+  </Step>
+  <Step title="Authorize">
+    Authorize ScaleHouse to access your Gusto account via OAuth.
+  </Step>
+  <Step title="Verify">
+    Verify the connection shows as "Active" in your dashboard.
+  </Step>
+</Steps>
+
+## What Data is Synced
+
+- Employee roster (name, email, employee ID)
+- Termination dates
+- Department assignments
+- Employment status
+
+## Cross-System Detection
+
+Once connected, ScaleHouse automatically correlates Gusto termination data with PMS access logs to detect:
+- Terminated employees with active PMS accounts
+- Employees without proper access termination
+- Access control violations
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Gap Detection"
+    icon="shield"
+    href="/docs/audit-intelligence/gap-detection"
+  >
+    Learn about gap detection
+  </Card>
+  <Card
+    title="Cross-System Setup"
+    icon="link"
+    href="/docs/guides/cross-system-detection"
+  >
+    Configure cross-system detection
+  </Card>
+</CardGroup>
+

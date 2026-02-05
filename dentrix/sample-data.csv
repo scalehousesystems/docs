@@ -1,0 +1,22 @@
+SecurityLogID,LogDateTime,PatientID,UserID,UserName,ProviderID,EventType,EventTypeName,WorkstationID,Description,SourceModule,OldValue,NewValue,FieldName,IPAddress,SessionID,ProviderFirstName,ProviderLastName
+1001,2024-01-15T08:05:23.000,NULL,101,jsmith,NULL,100,UserLogin,FRONTDESK1,User logged in,Security,NULL,NULL,NULL,192.168.1.100,sess-abc123,NULL,NULL
+1002,2024-01-15T08:12:45.000,50123,101,jsmith,NULL,200,PatientViewed,FRONTDESK1,Patient record viewed,PatientModule,NULL,NULL,NULL,192.168.1.100,sess-abc123,NULL,NULL
+1003,2024-01-15T08:15:02.000,50123,101,jsmith,NULL,202,PatientModified,FRONTDESK1,Patient phone number updated,PatientModule,555-0100,555-0199,PhoneNumber,192.168.1.100,sess-abc123,NULL,NULL
+1004,2024-01-15T08:32:11.000,50124,201,drjones,301,210,ChartViewed,OPERATORY1,Patient chart accessed,ChartModule,NULL,NULL,NULL,192.168.1.110,sess-def456,Sarah,Jones
+1005,2024-01-15T08:45:33.000,50124,201,drjones,301,211,MedicalHistoryViewed,OPERATORY1,Medical history viewed,ChartModule,NULL,NULL,NULL,192.168.1.110,sess-def456,Sarah,Jones
+1006,2024-01-15T09:01:15.000,50124,201,drjones,301,212,MedicalHistoryModified,OPERATORY1,Allergy list updated,ChartModule,Penicillin,Penicillin; Latex,Allergies,192.168.1.110,sess-def456,Sarah,Jones
+1007,2024-01-15T09:15:22.000,50124,202,hygienist1,302,301,ImageCreated,OPERATORY1,X-ray image captured,ImagingModule,NULL,NULL,NULL,192.168.1.111,sess-ghi789,Mike,Wilson
+1008,2024-01-15T09:20:45.000,50125,101,jsmith,NULL,221,SSNViewed,FRONTDESK1,SSN viewed for insurance verification,PatientModule,NULL,NULL,NULL,192.168.1.100,sess-abc123,NULL,NULL
+1009,2024-01-15T09:45:00.000,NULL,100,admin,NULL,400,UserCreated,ADMIN1,New user account created: newhire,Security,NULL,NULL,NULL,192.168.1.50,sess-admin01,NULL,NULL
+1010,2024-01-15T09:46:12.000,NULL,100,admin,NULL,403,RoleAssigned,ADMIN1,Role 'Front Desk' assigned to user newhire,Security,NULL,Front Desk,Role,192.168.1.50,sess-admin01,NULL,NULL
+1011,2024-01-15T10:00:00.000,50126,101,jsmith,NULL,201,PatientCreated,FRONTDESK1,New patient registered,PatientModule,NULL,NULL,NULL,192.168.1.100,sess-abc123,NULL,NULL
+1012,2024-01-15T10:30:15.000,NULL,201,drjones,301,500,ReportGenerated,OPERATORY1,Daily production report generated,ReportsModule,NULL,NULL,NULL,192.168.1.110,sess-def456,Sarah,Jones
+1013,2024-01-15T11:00:00.000,50127,202,hygienist1,302,304,ImageExported,OPERATORY1,X-ray exported for referral,ImagingModule,NULL,NULL,NULL,192.168.1.111,sess-ghi789,Mike,Wilson
+1014,2024-01-15T11:15:30.000,50128,101,jsmith,NULL,503,EmailSent,FRONTDESK1,Appointment reminder email sent,CommunicationModule,NULL,NULL,NULL,192.168.1.100,sess-abc123,NULL,NULL
+1015,2024-01-15T12:00:00.000,NULL,101,jsmith,NULL,101,UserLogout,FRONTDESK1,User logged out,Security,NULL,NULL,NULL,192.168.1.100,sess-abc123,NULL,NULL
+1016,2024-01-15T12:05:00.000,NULL,NULL,NULL,NULL,102,LoginFailed,FRONTDESK1,Failed login attempt for user 'unknown',Security,NULL,NULL,NULL,192.168.1.200,NULL,NULL,NULL
+1017,2024-01-15T13:00:00.000,NULL,100,admin,NULL,600,DatabaseBackup,SERVER,Automated database backup completed,System,NULL,NULL,NULL,192.168.1.1,sess-system,NULL,NULL
+1018,2024-01-15T13:30:45.000,50123,203,newhire,NULL,200,PatientViewed,FRONTDESK2,Patient record viewed,PatientModule,NULL,NULL,NULL,192.168.1.102,sess-new001,NULL,NULL
+1019,2024-01-15T14:00:00.000,NULL,100,admin,NULL,410,SecuritySettingChanged,ADMIN1,Password policy updated,Security,8 chars minimum,12 chars minimum,MinPasswordLength,192.168.1.50,sess-admin01,NULL,NULL
+1020,2024-01-15T14:30:00.000,50129,201,drjones,301,204,PatientDeleted,OPERATORY1,Duplicate patient record deleted,PatientModule,NULL,NULL,NULL,192.168.1.110,sess-def456,Sarah,Jones
+

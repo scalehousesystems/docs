@@ -1,0 +1,86 @@
+---
+title: Connectors API
+description: 'API endpoints for managing connectors'
+---
+
+## Overview
+
+The Connectors API allows you to manage connectors programmatically.
+
+## Endpoints
+
+### Create Activation Token
+
+```bash
+POST /api/connectors/create-token
+```
+
+Generate a new activation token for a connector.
+
+**Response:**
+```json
+{
+  "token": "act_abc123...",
+  "expires_at": "2024-01-01T12:00:00Z"
+}
+```
+
+### Activate Connector
+
+```bash
+POST /api/connectors/activate
+```
+
+Activate a connector using an activation token.
+
+**Request:**
+```json
+{
+  "token": "act_abc123...",
+  "name": "Office Main Computer"
+}
+```
+
+### List Connectors
+
+```bash
+GET /api/connectors
+```
+
+Get a list of all connectors for your organization.
+
+### Get Connector
+
+```bash
+GET /api/connectors/{id}
+```
+
+Get details about a specific connector.
+
+### Connector Heartbeat
+
+```bash
+POST /api/connectors/{id}/heartbeat
+```
+
+Send a heartbeat to indicate the connector is alive.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Ingestion API"
+    icon="upload"
+    href="/docs/api-reference/ingestion"
+  >
+    Ingest audit events
+  </Card>
+  <Card
+    title="MCP Tools"
+    icon="code"
+    href="/docs/api-reference/mcp-tools"
+  >
+    MCP tool reference
+  </Card>
+</CardGroup>
+

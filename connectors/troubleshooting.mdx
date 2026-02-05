@@ -1,0 +1,208 @@
+---
+title: Troubleshooting
+description: 'Common connector issues and solutions'
+---
+
+## Overview
+
+This guide covers common issues you may encounter with the ScaleHouse connector and how to resolve them.
+
+## Connector Status Issues
+
+### Connector Shows "Offline"
+
+<AccordionGroup>
+  <Accordion title="Service Not Running">
+    **Symptoms:** Connector icon missing from system tray
+    
+    **Solution:**
+    1. Open **Task Manager** (Ctrl+Shift+Esc)
+    2. Check if "ScaleHouse Connector" process is running
+    3. If not, restart the connector from Start Menu
+    4. If it won't start, check Windows Event Log for errors
+  </Accordion>
+
+  <Accordion title="Network Connection Lost">
+    **Symptoms:** Connector shows offline, but service is running
+    
+    **Solution:**
+    1. Check your internet connection
+    2. Verify firewall allows outbound HTTPS connections
+    3. Test connection: Open browser and visit scalehousesystems.com
+    4. Restart connector service
+  </Accordion>
+
+  <Accordion title="Database Connection Failed">
+    **Symptoms:** Connector offline, database credentials may have changed
+    
+    **Solution:**
+    1. Right-click connector icon → "Reconfigure"
+    2. Update database credentials
+    3. Click "Test Connection" to verify
+    4. Save configuration
+  </Accordion>
+</AccordionGroup>
+
+## Data Sync Issues
+
+### No Events Appearing in Dashboard
+
+<AccordionGroup>
+  <Accordion title="Connector Not Activated">
+    **Symptoms:** Connector installed but no data syncing
+    
+    **Solution:**
+    1. Verify connector is activated in dashboard
+    2. If not activated, generate activation token and activate
+    3. Check connector status shows "Active"
+  </Accordion>
+
+  <Accordion title="Database Credentials Incorrect">
+    **Symptoms:** Connector shows active but no events
+    
+    **Solution:**
+    1. Right-click connector icon → "Reconfigure"
+    2. Verify database credentials are correct
+    3. Click "Test Connection" to verify
+    4. Check connector logs for connection errors
+  </Accordion>
+
+  <Accordion title="Audit Trail Disabled">
+    **Symptoms:** Connector working but no audit events in PMS
+    
+    **Solution:**
+    1. Verify audit trail is enabled in your PMS
+    2. For Open Dental: Check Settings → Security → Audit Trail
+    3. For Dentrix: Check Security settings
+    4. Generate a test event (e.g., view a patient chart) to verify
+  </Accordion>
+
+  <Accordion title="Database Query Permissions">
+    **Symptoms:** Connector can connect but can't read audit log table
+    
+    **Solution:**
+    1. Verify database user has SELECT permissions on audit log tables
+    2. Check connector logs for permission errors
+    3. Contact your database administrator to grant permissions
+  </Accordion>
+</AccordionGroup>
+
+## Connection Errors
+
+### "Connection Refused" Error
+
+<AccordionGroup>
+  <Accordion title="Database Service Not Running">
+    **Solution:**
+    1. Open **Services** (services.msc)
+    2. Find MySQL or SQL Server service
+    3. Verify it's running
+    4. If not, start the service
+  </Accordion>
+
+  <Accordion title="Firewall Blocking Connection">
+    **Solution:**
+    1. Check Windows Firewall settings
+    2. Allow connections on database port (3306 for MySQL, 1433 for SQL Server)
+    3. If using third-party firewall, add exception
+  </Accordion>
+
+  <Accordion title="Incorrect Host/Port">
+    **Solution:**
+    1. Verify host is `localhost` or correct IP address
+    2. Verify port matches database configuration
+    3. Test connection using database client (e.g., MySQL Workbench)
+  </Accordion>
+</AccordionGroup>
+
+### "Access Denied" Error
+
+<AccordionGroup>
+  <Accordion title="Incorrect Username/Password">
+    **Solution:**
+    1. Verify database credentials are correct
+    2. Test credentials using database client
+    3. Update credentials in connector configuration
+  </Accordion>
+
+  <Accordion title="User Lacks Permissions">
+    **Solution:**
+    1. Verify database user has SELECT permissions
+    2. Check connector logs for specific permission errors
+    3. Contact database administrator to grant permissions
+  </Accordion>
+</AccordionGroup>
+
+## Performance Issues
+
+### High CPU Usage
+
+<AccordionGroup>
+  <Accordion title="Large Audit Log Table">
+    **Symptoms:** Connector using high CPU during initial sync
+    
+    **Solution:**
+    1. This is normal during initial sync of large audit logs
+    2. Wait for initial sync to complete (may take 10-30 minutes)
+    3. CPU usage should drop to <1% after initial sync
+  </Accordion>
+
+  <Accordion title="Frequent Polling">
+    **Solution:**
+    1. Polling frequency is set to 2 minutes by default
+    2. This is optimal for most practices
+    3. If needed, contact support to adjust polling frequency
+  </Accordion>
+</AccordionGroup>
+
+### High Memory Usage
+
+<AccordionGroup>
+  <Accordion title="Large Batch Processing">
+    **Symptoms:** Memory usage spikes during sync
+    
+    **Solution:**
+    1. Normal behavior when processing large batches
+    2. Memory should return to ~50-100 MB after sync
+    3. If memory stays high, restart connector service
+  </Accordion>
+</AccordionGroup>
+
+## Log Files
+
+Connector logs are stored at: `C:\ProgramData\ScaleHouse\logs\`
+
+<Steps>
+  <Step title="Locate Logs">
+    Navigate to `C:\ProgramData\ScaleHouse\logs\` in File Explorer.
+  </Step>
+  <Step title="Open Latest Log">
+    Open the most recent log file (sorted by date).
+  </Step>
+  <Step title="Check for Errors">
+    Look for ERROR or WARNING entries.
+  </Step>
+  <Step title="Share with Support">
+    If needed, share relevant log entries with ScaleHouse support.
+  </Step>
+</Steps>
+
+## Getting Help
+
+<CardGroup cols={2}>
+  <Card title="Check Documentation" icon="book" href="/docs">
+    Browse our documentation for detailed guides
+  </Card>
+  <Card title="Contact Support" icon="mail" href="mailto:support@scalehousesystems.com">
+    Email support for additional help
+  </Card>
+</CardGroup>
+
+<Info>
+When contacting support, include:
+- Connector version
+- Error messages from logs
+- Steps to reproduce the issue
+- Screenshots if applicable
+</Info>
+

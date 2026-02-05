@@ -1,0 +1,135 @@
+{
+  "name": "ScaleHouse Systems",
+  "logo": {
+    "dark": "/assets/img/scalehouse-logo.png",
+    "light": "/assets/img/scalehouse-logo.png",
+    "href": "https://scalehousesystems.com"
+  },
+  "favicon": "/assets/img/favicon.ico",
+  "colors": {
+    "primary": "#58A6FF",
+    "light": "#FFFFFF",
+    "dark": "#000000",
+    "background": {
+      "dark": "#000000",
+      "light": "#FFFFFF"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Dashboard",
+      "url": "https://scalehousesystems.com/dashboard"
+    },
+    {
+      "name": "Book Demo",
+      "url": "https://scalehousesystems.com/book-demo"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Get Started",
+    "url": "https://scalehousesystems.com/signup"
+  },
+  "tabs": [
+    {
+      "name": "API Reference",
+      "url": "api-reference"
+    },
+    {
+      "name": "Guides",
+      "url": "guides"
+    }
+  ],
+  "anchors": [
+    {
+      "name": "Community",
+      "icon": "discord",
+      "url": "https://discord.gg/scalehouse"
+    },
+    {
+      "name": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/scalehousesystems"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": [
+        "introduction",
+        "quickstart",
+        "installation",
+        "authentication"
+      ]
+    },
+    {
+      "group": "Core Features",
+      "pages": [
+        "features/dashboard",
+        "features/frameworks",
+        "features/programs",
+        "features/remediation",
+        "features/evidence",
+        "features/team",
+        "features/training",
+        "features/ai-assistant"
+      ]
+    },
+    {
+      "group": "Audit Intelligence",
+      "pages": [
+        "audit-intelligence/overview",
+        "audit-intelligence/connectors",
+        "audit-intelligence/gap-detection",
+        "audit-intelligence/compliance-scoring",
+        "audit-intelligence/alerts"
+      ]
+    },
+    {
+      "group": "Connectors",
+      "pages": [
+        "connectors/overview",
+        "connectors/open-dental",
+        "connectors/dentrix",
+        "connectors/gusto",
+        "connectors/activation",
+        "connectors/troubleshooting"
+      ]
+    },
+    {
+      "group": "AI Workflows",
+      "pages": [
+        "ai-workflows/overview",
+        "ai-workflows/document-generation",
+        "ai-workflows/compliance-checks",
+        "ai-workflows/audit-queries",
+        "ai-workflows/templates"
+      ]
+    },
+    {
+      "group": "API Reference",
+      "pages": [
+        "api-reference/authentication",
+        "api-reference/connectors",
+        "api-reference/ingestion",
+        "api-reference/mcp-tools",
+        "api-reference/webhooks"
+      ]
+    },
+    {
+      "group": "Guides",
+      "pages": [
+        "guides/beta-testing",
+        "guides/pilot-onboarding",
+        "guides/multi-location-setup",
+        "guides/cross-system-detection",
+        "guides/security-best-practices"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "twitter": "https://twitter.com/scalehouse",
+    "linkedin": "https://linkedin.com/company/scalehouse",
+    "github": "https://github.com/scalehousesystems"
+  }
+}
+

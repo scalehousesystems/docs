@@ -1,0 +1,147 @@
+---
+title: Connector Activation
+description: 'How to activate your ScaleHouse connector'
+---
+
+## Overview
+
+After installing the connector, you need to activate it with an activation token from your dashboard. This process links the connector to your organization and generates a permanent API key for ongoing authentication.
+
+<Info>
+Activation tokens are valid for 15 minutes and can only be used once.
+</Info>
+
+## Generate Activation Token
+
+<Steps>
+  <Step title="Navigate to Connectors">
+    In your ScaleHouse dashboard, go to **Audit Intelligence → Connectors**.
+  </Step>
+  <Step title="Click Activate">
+    Click the **"Activate Connector"** button.
+  </Step>
+  <Step title="Copy Token">
+    A modal will appear with your activation token. Click **"Copy"** to copy it to your clipboard.
+  </Step>
+  <Step title="Note Expiration">
+    The token expires in 15 minutes. If it expires, generate a new one.
+  </Step>
+</Steps>
+
+<Warning>
+Activation tokens are single-use and expire after 15 minutes. Generate a new token if needed.
+</Warning>
+
+## Activate Connector
+
+<Steps>
+  <Step title="Open Connector">
+    Right-click the ScaleHouse connector icon in your system tray and select **"Configure"**.
+  </Step>
+  <Step title="Paste Token">
+    Paste the activation token into the **"Activation Token"** field.
+  </Step>
+  <Step title="Click Activate">
+    Click the **"Activate"** button.
+  </Step>
+  <Step title="Wait for Confirmation">
+    The connector will communicate with the ScaleHouse API to activate. This usually takes 2-5 seconds.
+  </Step>
+  <Step title="Verify Status">
+    Check your dashboard to confirm the connector shows as **"Active"**.
+  </Step>
+</Steps>
+
+## What Happens During Activation
+
+<AccordionGroup>
+  <Accordion title="Token Validation">
+    The connector sends the activation token to the ScaleHouse API for validation.
+  </Accordion>
+
+  <Accordion title="API Key Generation">
+    Upon successful validation, the API generates a permanent API key for the connector.
+  </Accordion>
+
+  <Accordion title="Connector Registration">
+    The connector is registered to your organization and location.
+  </Accordion>
+
+  <Accordion title="Initial Sync">
+    The connector begins syncing audit logs immediately after activation.
+  </Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Token expired">
+    **Solution:** Generate a new activation token from your dashboard.
+  </Accordion>
+
+  <Accordion title="Token already used">
+    **Solution:** Each token can only be used once. Generate a new token if you need to reactivate.
+  </Accordion>
+
+  <Accordion title="Network error during activation">
+    **Possible causes:**
+    - No internet connection
+    - Firewall blocking connection
+    - ScaleHouse API temporarily unavailable
+    
+    **Solution:**
+    1. Check your internet connection
+    2. Verify firewall allows outbound HTTPS connections
+    3. Wait a few minutes and try again
+  </Accordion>
+
+  <Accordion title="Connector shows 'Pending' after activation">
+    **Solution:**
+    1. Wait 30 seconds for status to update
+    2. Right-click connector icon → "Refresh Status"
+    3. Check connector logs: `C:\ProgramData\ScaleHouse\logs\`
+  </Accordion>
+</AccordionGroup>
+
+## Reactivating a Connector
+
+If you need to reactivate a connector (e.g., after uninstalling and reinstalling):
+
+<Steps>
+  <Step title="Generate New Token">
+    Follow the steps above to generate a new activation token.
+  </Step>
+  <Step title="Open Configuration">
+    Open the connector configuration window.
+  </Step>
+  <Step title="Paste Token">
+    Paste the new activation token.
+  </Step>
+  <Step title="Activate">
+    Click **"Activate"** to link the connector to your account again.
+  </Step>
+</Steps>
+
+<Note>
+Reactivating a connector will create a new connector record in your dashboard. The old connector will be marked as inactive.
+</Note>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Configure Database"
+    icon="database"
+    href="/docs/connectors/open-dental"
+  >
+    Set up database connection
+  </Card>
+  <Card
+    title="Verify Connection"
+    icon="check-circle"
+    href="/docs/quickstart"
+  >
+    Verify connector is working
+  </Card>
+</CardGroup>
+

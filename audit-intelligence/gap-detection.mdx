@@ -1,0 +1,79 @@
+---
+title: Gap Detection
+description: 'How ScaleHouse detects compliance gaps automatically'
+---
+
+## Overview
+
+Gap detection is the automated process of analyzing audit logs to identify compliance violations and security risks.
+
+## Detection Rules
+
+ScaleHouse uses a comprehensive set of rules to detect gaps:
+
+<AccordionGroup>
+  <Accordion title="Access Control Violations">
+    - Terminated employees with active accounts
+    - Users accessing data outside business hours
+    - Unusual access patterns
+  </Accordion>
+
+  <Accordion title="Audit Trail Issues">
+    - Missing audit logs
+    - Audit trail disabled
+    - Incomplete event records
+  </Accordion>
+
+  <Accordion title="Security Events">
+    - Failed login attempts
+    - SQL command execution
+    - Permission changes
+  </Accordion>
+
+  <Accordion title="Data Integrity">
+    - Unauthorized data modifications
+    - Bulk data exports
+    - Image deletions
+  </Accordion>
+</AccordionGroup>
+
+## Severity Levels
+
+<CardGroup cols={3}>
+  <Card title="Critical" icon="alert-triangle">
+    Immediate action required (e.g., SQL command execution)
+  </Card>
+  <Card title="High" icon="alert-circle">
+    Should be addressed within 24 hours
+  </Card>
+  <Card title="Medium" icon="info">
+    Should be addressed within 7 days
+  </Card>
+</CardGroup>
+
+## Detection Frequency
+
+Gap detection runs automatically:
+- **Every 15 minutes** for real-time monitoring
+- **On-demand** via dashboard refresh
+- **After connector sync** for immediate detection
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Compliance Scoring"
+    icon="chart-line"
+    href="/docs/audit-intelligence/compliance-scoring"
+  >
+    Understand how gaps affect your score
+  </Card>
+  <Card
+    title="Alerts"
+    icon="bell"
+    href="/docs/audit-intelligence/alerts"
+  >
+    Configure alert notifications
+  </Card>
+</CardGroup>
+

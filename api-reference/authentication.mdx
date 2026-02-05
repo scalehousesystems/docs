@@ -1,0 +1,72 @@
+---
+title: API Authentication
+description: 'Authenticate with the ScaleHouse API'
+---
+
+## Overview
+
+The ScaleHouse API uses API keys for authentication. Include your API key in the `Authorization` header of each request.
+
+## Getting an API Key
+
+<Steps>
+  <Step title="Navigate to Settings">
+    Go to **Settings → API Keys** in your dashboard.
+  </Step>
+  <Step title="Create Key">
+    Click **"Create API Key"** and give it a name.
+  </Step>
+  <Step title="Copy Key">
+    Copy the API key immediately - it won't be shown again.
+  </Step>
+</Steps>
+
+## Using API Keys
+
+Include your API key in the `Authorization` header:
+
+```bash
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  https://api.scalehousesystems.com/v1/connectors
+```
+
+## Security Best Practices
+
+<Warning>
+Never commit API keys to version control. Use environment variables instead.
+</Warning>
+
+<CardGroup cols={2}>
+  <Card title="Environment Variables" icon="code">
+    Store keys in environment variables
+  </Card>
+  <Card title="Rotate Regularly" icon="refresh">
+    Rotate keys periodically
+  </Card>
+  <Card title="Scope Access" icon="lock">
+    Use keys with minimal required permissions
+  </Card>
+  <Card title="Revoke When Needed" icon="x-circle">
+    Revoke compromised keys immediately
+  </Card>
+</CardGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="Connectors API"
+    icon="plug"
+    href="/docs/api-reference/connectors"
+  >
+    Connector API endpoints
+  </Card>
+  <Card
+    title="Ingestion API"
+    icon="upload"
+    href="/docs/api-reference/ingestion"
+  >
+    Ingest audit events
+  </Card>
+</CardGroup>
+
