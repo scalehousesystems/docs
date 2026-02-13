@@ -1,0 +1,4 @@
+{
+  "buildCommand": "mintlify install && mintlify build",
+  "outputDirectory": ".mintlify/build"
+}
