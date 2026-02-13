@@ -43,7 +43,7 @@
     {
       "name": "Community",
       "icon": "discord",
-      "url": "https://discord.gg/scalehouse"
+      "url": "https://discord.gg/mBvq8kBWDV"
     },
     {
       "name": "GitHub",
@@ -127,9 +127,10 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/scalehouse",
-    "linkedin": "https://linkedin.com/company/scalehouse",
+    "twitter": "https://x.com/getscalehouse",
+    "linkedin": "https://www.linkedin.com/company/scalehouse-systems",
     "github": "https://github.com/scalehousesystems"
-  }
+  },
+  "theme": "mint"
 }
 

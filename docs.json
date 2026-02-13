@@ -47,6 +47,7 @@
     }
   ],
   "navigation": {
+<<<<<<< HEAD
     "groups": [
       {
         "group": "Get Started",
@@ -121,6 +122,59 @@
           "guides/security-best-practices"
         ]
       }
+=======
+    "Get Started": [
+      "introduction",
+      "quickstart",
+      "installation",
+      "authentication"
+    ],
+    "Core Features": [
+      "features/dashboard",
+      "features/frameworks",
+      "features/programs",
+      "features/remediation",
+      "features/evidence",
+      "features/team",
+      "features/training",
+      "features/ai-assistant"
+    ],
+    "Audit Intelligence": [
+      "audit-intelligence/overview",
+      "audit-intelligence/connectors",
+      "audit-intelligence/gap-detection",
+      "audit-intelligence/compliance-scoring",
+      "audit-intelligence/alerts"
+    ],
+    "Connectors": [
+      "connectors/overview",
+      "connectors/open-dental",
+      "connectors/dentrix",
+      "connectors/gusto",
+      "connectors/activation",
+      "connectors/troubleshooting"
+    ],
+    "AI Workflows": [
+      "ai-workflows/overview",
+      "ai-workflows/document-generation",
+      "ai-workflows/compliance-checks",
+      "ai-workflows/audit-queries",
+      "ai-workflows/templates"
+    ],
+    "API Reference": [
+      "api-reference/authentication",
+      "api-reference/connectors",
+      "api-reference/ingestion",
+      "api-reference/mcp-tools",
+      "api-reference/webhooks"
+    ],
+    "Guides": [
+      "guides/beta-testing",
+      "guides/pilot-onboarding",
+      "guides/multi-location-setup",
+      "guides/cross-system-detection",
+      "guides/security-best-practices"
+>>>>>>> adf19933c65fd7f915b3f27d3b5101006ee15bb5
     ]
   },
   "footerSocials": {
