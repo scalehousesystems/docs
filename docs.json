@@ -1,5 +1,6 @@
 {
   "name": "ScaleHouse Systems",
+  "theme": "mint",
   "logo": {
     "dark": "/assets/img/scalehouse-logo.png",
     "light": "/assets/img/scalehouse-logo.png",
@@ -132,4 +133,3 @@
     "github": "https://github.com/scalehousesystems"
   }
 }
-
