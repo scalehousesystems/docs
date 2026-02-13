@@ -1,6 +1,6 @@
 {
   "name": "ScaleHouse Systems",
-  "theme": "mint",
+  "theme": "aspen",
   "logo": {
     "dark": "/assets/img/scalehouse-logo.png",
     "light": "/assets/img/scalehouse-logo.png",
@@ -8,7 +8,9 @@
   },
   "favicon": "/assets/img/favicon.ico",
   "colors": {
-    "primary": "#58A6FF"
+    "primary": "#335c67",
+    "dark": "#335c67",
+    "light": "#a3cef1"
   },
   "topbarLinks": [
     {
@@ -127,5 +129,14 @@
     "twitter": "https://twitter.com/scalehouse",
     "linkedin": "https://linkedin.com/company/scalehouse",
     "github": "https://github.com/scalehousesystems"
+  },
+  "background": {
+    "decoration": "gradient"
+  },
+  "appearance": {
+    "default": "dark"
+  },
+  "icons": {
+    "library": "lucide"
   }
 }
